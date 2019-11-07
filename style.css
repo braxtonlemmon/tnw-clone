@@ -1,0 +1,478 @@
+    /* CSS reset with box-sizing fix */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+    }
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+     display: block;
+    }
+    html {
+     box-sizing: border-box;
+    }
+    *, *:before, *:after {
+     box-sizing: inherit;
+    }
+    body {
+     line-height: 1;
+    }
+    ol, ul {
+     list-style: none;
+    }
+    blockquote, q {
+     quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+     content: '';
+     content: none;
+    }
+    table {
+     border-collapse: collapse;
+     border-spacing: 0;
+    }
+
+
+/*
+	=====================
+	UNIVERSAL
+	=====================
+*/
+
+
+html {
+	font-family: 'Maven Pro', sans-serif;
+	font-size: 16px;
+}
+h2 {
+	font-size: 28px;
+}
+/*
+	===================
+	HEADER
+	===================
+*/
+.header {
+	height: 80px;
+}
+
+.logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateX(-106px);
+}
+
+.logo a {
+	width: 106px;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	background: linear-gradient(to bottom right, #c09, #f42 85%);
+}
+
+.logo img {
+	height: 70%;
+	width: 70%;
+}
+
+.header li {
+	display: inline;
+	cursor: pointer;
+}
+
+.nav1 {
+	background-color: #808080;
+	max-height: 32px;
+	line-height: 32px;
+	background: rgb(19, 19, 19);
+	color: rgb(147, 147, 147);
+	font-size: 13px;
+}
+
+.nav1 li {
+	padding-right: 5px;
+}
+.nav1 li:hover {
+	color: white;
+}
+
+nav ul, .search{
+	padding: 0 10px;
+}
+
+.nav1, .nav2 {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;	
+}
+
+.nav2 {
+	height: 48px;
+}
+
+.nav2-links {
+	display: flex;
+}
+
+.nav2 li {
+	padding-right: 20px;
+	display: grid;
+	justify-content: left;
+	align-items: center;
+}
+
+.nav2 a {
+	color: #AAA;
+	text-decoration: none;
+}
+.nav2 li:hover > a {
+	color: rgb(19, 19, 19);
+}
+
+.nav2-right:last-child {
+	padding: 0;
+	margin: 0;
+}
+.nav-toggle {
+	display: none;
+}
+/*
+	====================
+	COVER
+	====================
+*/
+.cover {
+	background-color: #f1f1f1;
+	max-height: 560px;
+	width: 100%;
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas:
+		"story1 story1 story2"
+		"story1 story1 story3";
+}
+
+.story1 {
+	grid-area: story1;
+}
+
+.story2 {
+	grid-area: story2;
+
+}
+
+.story3 {
+	grid-area: story3;
+}
+
+.cover > * {
+	display: flex;
+}
+
+.cover img {
+	height: 100%;
+	width: 100%;
+	padding: 5px;
+}
+/*
+	================
+	WRAPPER
+	================
+*/
+.wrapper {
+	background-color: rgb(255, 180, 186);
+	max-width: 1192px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+/*
+	=================
+	LATEST NEWS
+	=================
+*/
+.latest-news {
+	display: flex;
+	flex-direction: column;
+	margin: 4em 0;
+}
+
+.latest-news .ad {
+	background-color: rgba(170, 51, 221, 0.411);
+	min-height: 200px;
+}
+
+.latest-news h2 {
+	background-color: rgba(143, 49, 184, 0.678);
+}
+
+.latest-articles {
+	display: flex;
+	flex-wrap: wrap;	
+}
+
+.latest-article {
+	border: 1px solid red;
+	background-color: #e2d;
+	flex-basis: calc(25% - 2px);
+	min-height: 200px;
+}
+
+/*
+	=================
+	FUNDING
+	=================
+*/
+.funding {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 4em;
+}
+
+.funding h2 {
+	background-color: #3388dd;
+}
+
+.funding-items {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.funding-item {
+	border: 1px solid red;
+	background-color: #70a5da;
+	flex-basis: calc(25% - 2px);
+	height: 200px;
+}
+
+/*
+	=================
+	CATEGORIES
+	=================
+*/
+.categories {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 4em;
+}
+
+.category {
+	border: 1px solid red;
+	background-color: #6eca23;
+	flex-basis: calc(33.333% - 2px);
+	height: 200px;
+}
+
+/*
+	=================
+	DEALS
+	=================
+*/
+.deals {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 4em;
+}
+
+.deals h2 {
+	background-color: rgb(143, 100, 86);
+}
+
+.deal-items {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.deal-item {
+	border: 1px solid black;
+	background-color: rgb(59, 92, 62);
+	flex-basis: calc(25% - 2px);
+	height: 200px;
+}
+
+.bottom-ad {
+	height: 200px;
+	background-color: rgb(61, 77, 60);
+}
+
+/*
+	====================
+	FOOTER
+	====================
+*/
+.footer {
+	text-align: center;
+}
+
+.footer-links {
+	background-color: #128;
+	padding: 3em 0 2em;
+}
+
+.footer-legal {
+	background-color: rgb(211, 208, 52);
+	padding: 3em 0;
+}
+
+
+
+/*
+	======================
+	MEDIA BREAKPOINTS
+	======================
+*/
+
+@media only screen and (max-width: 1024px) {
+	/* Header */
+	.nav1, .nav2 {
+		padding-left: 106px;
+	}
+	
+	.logo {
+		transform: translateX(0px);
+	}
+
+	.logo img {
+		padding-top: 32px;
+	}
+
+	/* Cover */
+	.cover {
+		height: 60vh;
+	}
+
+	/* Latest news */
+	.latest-news {
+		margin: 3em 0;
+	}
+
+	.latest-article {
+		flex-basis: calc(33.333333% - 2px);
+	}
+
+	/* Funding */
+	.funding {
+		margin-bottom: 3em;
+	}
+
+	.funding-item {
+		flex: 0 1 auto;
+		flex-basis: calc(33.3333% - 2px);
+	}
+
+	.funding-item:nth-child(4) {
+		display: none;
+	}
+
+	/* Categories */
+	.categories {
+		margin-bottom: 3em;
+	}
+
+	.category {
+		flex-basis: calc(50% - 2px);
+	}
+
+	/* Deals */
+	.deals {
+		margin-bottom: 3em;
+	}
+
+	.deal-item {
+		flex-basis: calc(33.3333% - 2px);
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	/* Header */
+	.header {
+		height: 48px;
+	}
+
+	.logo a {
+		height: 48px;
+	}
+
+	.logo img {
+		padding-top: 16px;
+	}
+
+	.nav1 {
+		display: none;
+	}
+
+	.nav2 {
+		justify-content: end;
+	}
+
+	.nav2-links:first-child {
+		display: none;
+	}
+
+	.nav-toggle {
+		display: block;
+		width: 32px;
+		padding: 8px 2px;
+	}
+
+	.nav-toggle span {
+		background-color: #f42;
+		height: 2px;
+		display: block;
+		margin-bottom: 7px;
+	}
+
+	/* Cover */
+	.cover {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-areas:
+			"story1"
+			"story2"
+			"story3";
+	}
+
+	.cover > * {
+		min-height: 30vh;
+	}
+
+	/* Latest news */
+	.latest-article {
+		flex-basis: calc(100% - 2px);
+	}
+
+	/* Funding */
+	.funding-item {
+		flex-basis: calc(100% - 2px);
+	}
+
+	/* Categories */
+	.category {
+		flex-basis: calc(100% - 2px);
+	}
+
+	/* Deals */
+	.deal-item {
+		flex-basis: calc(100% - 2px);
+	}
+}
