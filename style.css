@@ -1,4 +1,8 @@
-    /* CSS reset with box-sizing fix */
+		/*
+			=====================================
+			CSS reset with box-sizing fix
+			=====================================
+		*/
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -54,15 +58,53 @@
 	UNIVERSAL
 	=====================
 */
-
-
 html {
 	font-family: 'Maven Pro', sans-serif;
 	font-size: 16px;
 }
-h2 {
-	font-size: 28px;
+
+h2, h3 {
+	font-weight: 700;
+	line-height: 1.1;
 }
+
+h4 {
+	color: #f42;
+	font-weight: 700;
+	line-height: 1.25;
+	font-size: 14px;
+}
+
+h5 {
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+	line-height: 1.5;
+}
+
+li {
+	display: inline;
+}
+
+/* 
+	===================
+	TITLES
+	===================
+*/
+.section-title {
+	font-size: 28px;
+	color: #f42;
+	font-weight: 700;
+	line-height: 1.1;
+	cursor: pointer;
+	margin-bottom: 24px;
+	width: max-content;
+}
+
+.section-title:hover {
+	color: #000;
+}
+
 /*
 	===================
 	HEADER
@@ -72,6 +114,21 @@ h2 {
 	height: 80px;
 }
 
+.header li {
+	cursor: pointer;
+}
+
+nav ul, .search{
+	padding: 0 10px;
+}
+
+.nav1, .nav2 {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;	
+}
+
+/* logo */
 .logo {
 	position: absolute;
 	top: 0;
@@ -92,11 +149,7 @@ h2 {
 	width: 70%;
 }
 
-.header li {
-	display: inline;
-	cursor: pointer;
-}
-
+/* Top nav */
 .nav1 {
 	background-color: #808080;
 	max-height: 32px;
@@ -109,20 +162,12 @@ h2 {
 .nav1 li {
 	padding-right: 5px;
 }
+
 .nav1 li:hover {
 	color: white;
 }
 
-nav ul, .search{
-	padding: 0 10px;
-}
-
-.nav1, .nav2 {
-	display: flex;
-	justify-content: space-between;
-	align-content: center;	
-}
-
+/* Lower nav */
 .nav2 {
 	height: 48px;
 }
@@ -150,6 +195,7 @@ nav ul, .search{
 	padding: 0;
 	margin: 0;
 }
+
 .nav-toggle {
 	display: none;
 }
@@ -160,9 +206,10 @@ nav ul, .search{
 */
 .cover {
 	background-color: #f1f1f1;
-	max-height: 560px;
+	margin-bottom: 10px;
+	height: 75vh;
+	/* max-height: 560px; */
 	width: 100%;
-
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: 1fr 1fr;
@@ -171,39 +218,91 @@ nav ul, .search{
 		"story1 story1 story3";
 }
 
+.cover > * {
+	position: relative;
+	display: flex;
+}
+
+.big-logo {
+	background: url("https://cdn0.tnwcdn.com/wp-content/themes/cyberdelia/assets/img/tnw.svg") no-repeat;
+	position: absolute;
+	color: #fff;
+	background-size: contain;
+	left: 24px;
+	height: 112px;
+	top: 24px;
+	text-align: right;
+	z-index: 5;
+	right: 24px;
+}
+
 .story1 {
+	position: relative;
 	grid-area: story1;
 }
 
 .story2 {
 	grid-area: story2;
-
 }
 
 .story3 {
 	grid-area: story3;
 }
 
-.cover > * {
-	display: flex;
+.story-image {
+	background-image: url("assets/avatar.png");
+	background-size: cover;
+	opacity: 1;
+}
+.story-image, .story-trigger {
+	top: 4px;
+	right: 4px;
+	bottom: 4px;
+	left: 4px;
+	position: absolute;
 }
 
-.cover img {
-	height: 100%;
-	width: 100%;
-	padding: 5px;
+.story-trigger {
+	background: rgba(0,0,0,0.25) url("assets/image-gradient.png") no-repeat;
+	background-size: 100% 100%;
+	display: block;
+	z-index: 2;
 }
+
+.cover-header {
+	position: absolute;
+	margin: 10px;
+	bottom: 4px;
+	left: 4px;
+	z-index: 3;
+	color: white;
+	cursor: pointer;
+}
+
+.cover-title {
+	color: white;
+	font-size: 28px;
+}
+
+.story1 .cover-title {
+	font-size: 56px;
+}
+
+.cover-byline {
+	font-size: 12px;
+}
+
 /*
 	================
 	WRAPPER
 	================
 */
 .wrapper {
-	background-color: rgb(255, 180, 186);
 	max-width: 1192px;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	padding: 0 20px;
 }
 
 /*
@@ -214,16 +313,19 @@ nav ul, .search{
 .latest-news {
 	display: flex;
 	flex-direction: column;
-	margin: 4em 0;
+	margin-bottom: 4em;
 }
 
-.latest-news .ad {
+.ad {
 	background-color: rgba(170, 51, 221, 0.411);
-	min-height: 200px;
-}
-
-.latest-news h2 {
-	background-color: rgba(143, 49, 184, 0.678);
+	height: 200px;
+	margin: 30px;
+	color: white;
+	font-size: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer
 }
 
 .latest-articles {
@@ -232,10 +334,31 @@ nav ul, .search{
 }
 
 .latest-article {
-	border: 1px solid red;
-	background-color: #e2d;
-	flex-basis: calc(25% - 2px);
-	min-height: 200px;
+	flex-basis: 25%;
+	padding: 12px;
+}
+
+.latest-article a {
+	background-image: url("https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2019/11/46807310502_7bf29766e5_k-5-480x270.jpg");
+	background-size: cover;
+	background-position: 50%;
+	padding-top: 50%;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.story-title {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 700;
+}
+
+.latest-byline {
+	font-size: 13px;
+	line-height: 20px;
 }
 
 /*
@@ -249,20 +372,97 @@ nav ul, .search{
 	margin-bottom: 4em;
 }
 
-.funding h2 {
-	background-color: #3388dd;
+.funding-extra {
+	color: #f42;
+	font-size: 16px;
+	cursor: pointer;
 }
 
+.funding-extra li {
+	padding-right: 10px;
+}
+
+.funding-extra li:hover {
+	color: black;
+}
 .funding-items {
 	display: flex;
 	flex-flow: row wrap;
 }
 
 .funding-item {
-	border: 1px solid red;
-	background-color: #70a5da;
-	flex-basis: calc(25% - 2px);
-	height: 200px;
+	flex-basis: 25%;
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+}
+
+.funding-item > * {
+	flex-basis: 33.333%;
+}
+
+.funding-top {
+	display: flex;
+	flex-direction: column;
+}
+
+.funding-top > * {
+	text-decoration: none;
+}
+
+.funding-top a {
+	display: flex;
+	min-height: 80px;
+	flex-direction: column;
+	position: relative;
+}
+
+.funding-top img {
+	height: 60px;
+	width: 60px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.funding-top h4 {
+	padding: 10px 0 10px 80px;
+	background-color: #f42;
+	color: white;
+}
+
+.funding-mid {
+	background-color: #fffaf8;
+	padding: 10px;
+}
+
+.funding-mid a {
+	display: block;
+	font-size: 13px;
+	text-decoration: none;
+	color: grey;
+	padding: 4px 0;
+}
+
+.company-info h5 {
+	margin: 0;
+	line-height: 1.5;
+	color: black;
+}
+.company-info {
+	line-height: 2;
+	background-color: #ffebe7;
+	padding-left: 80px;
+	height: 100%;
+}
+
+.funding-byline {
+	background-color: #fffaf8;
+	font-size: 13px;
+	line-height: 20px;
+	border-top: 1px solid rgba(128, 128, 128, 0.404);
+	padding: 10px;
+	color: grey;
 }
 
 /*
@@ -277,10 +477,59 @@ nav ul, .search{
 }
 
 .category {
-	border: 1px solid red;
-	background-color: #6eca23;
-	flex-basis: calc(33.333% - 2px);
-	height: 200px;
+	flex-basis: 33.333%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+}
+
+.cat-cover {
+	position: relative;
+	padding-bottom: 75%;
+	margin-bottom: 5px;
+}
+
+/* Category Latest section */
+.cat-latest {
+	display: flex;
+	background: #fff4f2;
+	margin: 0 4px;
+}
+
+.cat-latest-header {
+	flex: 1;
+	padding: 10px 14px 0;
+}
+
+.cat-latest-header h4 {
+	width: 100%;
+}
+
+.cat-latest-image {
+	flex: 0 0 96px;
+	background-image: url("https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2019/11/Harmandeal.png");
+	background-size: cover;
+	background-position: 50%;
+	height: 96px;
+	width: 96px;
+}
+
+/* Category Related section */
+.cat-related {
+	display: flex;
+	flex-direction: column;
+	font-size: 13px;
+	color: rgb(85, 85, 85);
+}
+
+.cat-related-item {
+	border-bottom: 1px solid #eee;
+	padding: 10px;
+}
+
+.cat-cover .story-image,
+.cat-cover .story-trigger {
+	padding-top: 75%;
 }
 
 /*
@@ -294,20 +543,52 @@ nav ul, .search{
 	margin-bottom: 4em;
 }
 
-.deals h2 {
-	background-color: rgb(143, 100, 86);
+.deals-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-right: 30px;
 }
 
+.deals-see-all {
+	color: #f42;
+	font-size: 18px;
+	line-height: 18px;
+	text-decoration: none;
+}
+
+.deals-see-all:hover {
+	color: black;
+}
 .deal-items {
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .deal-item {
-	border: 1px solid black;
-	background-color: rgb(59, 92, 62);
-	flex-basis: calc(25% - 2px);
-	height: 200px;
+	flex-basis: 25%;
+	padding: 12px;
+}
+
+.deal-item a {
+	background-image: url("https://cdnp3.stackassets.com/b294fd5d551fa718b45212b1ffa2248ef47c09e2/store/2e9dd4b8cd3ade824b13667dc0cc61741074cc68e8ddb1346e572b839f87/sale_22919_primary_image.jpg");
+	background-size: cover;
+	padding-top: 75%;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.bad-price {
+	font-size: 12px;
+	color: grey;
+}
+
+.good-price {
+	font-size: 14px;
+	color: black;
 }
 
 .bottom-ad {
@@ -325,15 +606,46 @@ nav ul, .search{
 }
 
 .footer-links {
-	background-color: #128;
+	background: #131313;
 	padding: 3em 0 2em;
+	display: flex;
+	flex-direction: column;
+}
+
+.footer-logos {
+	margin-bottom: 1.5em;
+}
+.footer-logo  {
+	background-color: #333333;
+	height: 40px;
+	width: 40px;
+	display: inline-block;
+	border-radius: 50%;
+	margin: 0 8px;
+	cursor: pointer;
+}
+
+.footer-links-list {
+	color: #aaa;
+}
+
+.footer-link-item {
+	margin: 0 6px;
+	cursor: pointer;
+}
+
+.footer-link-item:hover {
+	color: white;
 }
 
 .footer-legal {
-	background-color: rgb(211, 208, 52);
+	background-color: black;
 	padding: 3em 0;
+	color: #aaa;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-
 
 
 /*
@@ -361,13 +673,25 @@ nav ul, .search{
 		height: 60vh;
 	}
 
+	.cover-title {
+		font-size: 20px;
+	}
+
+	.story1 .cover-title {
+		font-size: 40px;
+	}
+
+	.big-logo {
+		display: none;
+	}
+
 	/* Latest news */
 	.latest-news {
-		margin: 3em 0;
+		margin-bottom: 3em;
 	}
 
 	.latest-article {
-		flex-basis: calc(33.333333% - 2px);
+		flex-basis: 33.3333%;
 	}
 
 	/* Funding */
@@ -377,7 +701,7 @@ nav ul, .search{
 
 	.funding-item {
 		flex: 0 1 auto;
-		flex-basis: calc(33.3333% - 2px);
+		flex-basis: 33.3333%;
 	}
 
 	.funding-item:nth-child(4) {
@@ -444,6 +768,7 @@ nav ul, .search{
 
 	/* Cover */
 	.cover {
+		min-height: 90vh;
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(3, 1fr);
 		grid-template-areas:
@@ -456,14 +781,42 @@ nav ul, .search{
 		min-height: 30vh;
 	}
 
-	/* Latest news */
-	.latest-article {
-		flex-basis: calc(100% - 2px);
+	.story1 .cover-title {
+		font-size: 20px;
 	}
 
+	/* Latest news */
+	.latest-news {
+		margin-bottom: 2em;
+	}
+
+	.latest-article {
+		flex-basis: 100%;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		margin: 12px;
+	}
+
+	.latest-article a {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 75px;
+		padding-top: 75px;
+	}
+
+	.story-title,
+	.latest-byline {
+		padding-left: 75px;
+	}
 	/* Funding */
 	.funding-item {
-		flex-basis: calc(100% - 2px);
+		flex-basis: 100%;
+	}
+
+	.funding-extra li {
+		display: block;
 	}
 
 	/* Categories */
@@ -473,6 +826,28 @@ nav ul, .search{
 
 	/* Deals */
 	.deal-item {
-		flex-basis: calc(100% - 2px);
+		flex-basis: 100%;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		margin: 12px;
+	}
+
+	.deal-item a {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 75px;
+		padding-top: 75px;
+	}
+
+	.deal-title,
+	.deal-byline {
+		padding-left: 75px;
+	}
+
+	/* Ad */
+	.ad {
+		font-size: 40px;
 	}
 }
